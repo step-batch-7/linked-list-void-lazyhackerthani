@@ -99,7 +99,6 @@ List_ptr filter(List_ptr list, Predicate predicate_function){
 }
 
 Element reduce(List_ptr list, Element element, Reducer reducer_function){
-  Element element;
   Node_ptr curr_node = list->first;
   for (int i = 0; i < list->length; i++)
   {
@@ -228,7 +227,7 @@ Status clear_list(List_ptr list){
     cleared = Failure;
     return cleared;
   }
-while (list->length=0)
+while (list->length==0)
 {
 remove_from_end(list);
 }
