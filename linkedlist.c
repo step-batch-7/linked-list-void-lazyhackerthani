@@ -159,3 +159,13 @@ Element remove_at(List_ptr list, int position){
       list->length--;
       return removed_element;
 }
+
+Element remove_from_start(List_ptr list){
+  Element removed_element = remove_at(list,0);
+  return removed_element;
+}
+
+Element remove_from_end(List_ptr list){
+  Element removed_element = remove_at(list, list->length-1);
+  return removed_element;
+}
