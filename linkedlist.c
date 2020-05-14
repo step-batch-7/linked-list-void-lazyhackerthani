@@ -204,3 +204,20 @@ for (int i = 0; i < list->length; i++)
 }
 return removed_list;
 }
+
+Status add_unique(List_ptr list, Element element, Matcher matcher){
+  Node_ptr curr_node = list->first;
+  Status added = Failure;
+  int index = 0;
+Status found = Failure;
+while (found!=Success || index<list->length)
+{
+  found = matcher(curr_node->element,element);
+  curr_node = curr_node->next;
+  index++;
+}
+if(found==Failure){
+  added = add_to_list(list, element);
+}
+return added;
+}
