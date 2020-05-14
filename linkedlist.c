@@ -117,3 +117,45 @@ for (int i = 0; i < list->length; i++)
   curr_node = curr_node->next;
 }
 }
+
+Element remove_at(List_ptr list, int position){
+  Element removed_element =NULL;
+    if (position < 0 || position >= list->length)
+    {
+      return removed_element;
+    }
+    if(list->length==1){
+      removed_element = list->first->element;
+      free(list->first);
+      free(list->last);
+      list->length--;
+      return removed_element;
+    }
+    if (position==0)
+    {
+      Node_ptr node_to_clear = list->first;
+      removed_element = node_to_clear->element;
+      list->first=list->first->next;
+      free(node_to_clear);
+      list->length--;
+      return removed_element;
+    }
+    Node_ptr curr_node = list->first;
+    for (int i = 0; i < position-1; i++)
+    {
+      curr_node = curr_node->next;
+    }
+    Node_ptr node_to_clear = curr_node->next;
+      removed_element = node_to_clear->element;
+      if(position==list->length-1){
+        list->last = curr_node;
+        curr_node->next = NULL;
+        free(node_to_clear);
+      list->length--;
+      return removed_element;
+      }
+      curr_node->next = curr_node->next->next;
+      free(node_to_clear);
+      list->length--;
+      return removed_element;
+}
