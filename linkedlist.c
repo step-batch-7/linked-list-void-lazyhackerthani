@@ -62,3 +62,13 @@ Status add_to_start(List_ptr list, Element element){
 operation_status = insert_at(list,element,0);
 return operation_status;
 }
+
+List_ptr reverse(List_ptr list){
+  List_ptr reverse_list = create_list();
+  Node_ptr curr_node = list->start;
+  for (int i = 0; i < list->length; i++){
+ add_to_start(reverse_list,curr_node->element);
+ curr_node = curr_node->next;
+  }
+  return reverse_list;
+}
