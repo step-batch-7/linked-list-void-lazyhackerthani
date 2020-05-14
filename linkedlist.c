@@ -2,6 +2,9 @@
 
 List_ptr create_list(void){
   List_ptr new_list = calloc(1, sizeof(LinkedList));
+  new_list->first = NULL;
+  new_list->last = NULL;
+  new_list->length = 0;
   return new_list;
 }
 
