@@ -82,3 +82,18 @@ List_ptr map(List_ptr list, Mapper map_function){
 }
 return list;
 }
+
+List_ptr filter(List_ptr list, Predicate predicate_function){
+  List_ptr filtered_list = create_list();
+  Node_ptr curr_node = list->first;
+  for (int i = 0; i < list->length; i++)
+  {
+    Status status = predicate_function(curr_node->element);
+    if (status==Success)
+    {
+      add_to_list(filtered_list, curr_node->element);
+    }
+    curr_node = curr_node->next;
+  }
+  return filtered_list;
+}
