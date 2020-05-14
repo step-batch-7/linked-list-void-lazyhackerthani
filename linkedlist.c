@@ -187,3 +187,20 @@ if (found==Success)
 }
 return removed_element;
 }
+
+List_ptr remove_all_occurrences(List_ptr list, Element element, Matcher matcher){
+Element removed_element =NULL;
+Node_ptr curr_node = list->first;
+List_ptr removed_list = create_list();
+for (int i = 0; i < list->length; i++)
+{
+  Status found= matcher(curr_node->element,element);
+  if (found==Success)
+  {
+    removed_element = remove_at(list,i);
+    add_to_list(removed_list, removed_element);
+  }
+  curr_node = curr_node->next;
+}
+return removed_list;
+}
