@@ -108,3 +108,12 @@ Element reduce(List_ptr list, Element element, Reducer reducer_function){
   }
   return element;
 }
+
+void forEach(List_ptr list, ElementProcessor processor){
+  Node_ptr curr_node = list->first;
+for (int i = 0; i < list->length; i++)
+{
+  processor(curr_node->element);
+  curr_node = curr_node->next;
+}
+}
