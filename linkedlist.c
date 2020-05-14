@@ -65,10 +65,20 @@ return operation_status;
 
 List_ptr reverse(List_ptr list){
   List_ptr reverse_list = create_list();
-  Node_ptr curr_node = list->start;
-  for (int i = 0; i < list->length; i++){
+  Node_ptr curr_node = list->first;
+  for(int i = 0; i < list->length; i++){
  add_to_start(reverse_list,curr_node->element);
  curr_node = curr_node->next;
   }
   return reverse_list;
+}
+
+List_ptr map(List_ptr list, Mapper map_function){
+  Node_ptr curr_node = list->first;
+  for (int i = 0; i < list->length; i++)
+  {
+    curr_node->element = map_function(curr_node->element);
+    curr_node = curr_node->next;
+}
+return list;
 }
