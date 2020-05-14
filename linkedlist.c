@@ -221,3 +221,17 @@ if(found==Failure){
 }
 return added;
 }
+
+Status clear_list(List_ptr list){
+  Status cleared = Success;
+  if(list==NULL){
+    cleared = Failure;
+    return cleared;
+  }
+while (list->length=0)
+{
+remove_from_end(list);
+}
+free(list);
+return cleared;
+}
