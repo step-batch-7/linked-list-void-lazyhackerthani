@@ -50,3 +50,9 @@ Status insert_at(List_ptr list, Element element, int position){
     list->length++;
     return operation_status;
 }
+
+Status add_to_list(List_ptr list, Element element){
+Status operation_status;
+operation_status = insert_at(List_ptr list, Element element, int list->length);
+return operation_status;
+}
