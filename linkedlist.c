@@ -169,3 +169,21 @@ Element remove_from_end(List_ptr list){
   Element removed_element = remove_at(list, list->length-1);
   return removed_element;
 }
+
+Element remove_first_occurrence(List_ptr list, Element element, Matcher matcher){
+Element removed_element =NULL;
+Node_ptr curr_node = list->first;
+int index = 0;
+Status found = Failure;
+while (found!=Success || index<list->length)
+{
+  found = matcher(curr_node->element,element);
+  curr_node = curr_node->next;
+  index++;
+}
+if (found==Success)
+{
+  removed_element = remove_at(list,index - 1);
+}
+return removed_element;
+}
