@@ -53,6 +53,12 @@ Status insert_at(List_ptr list, Element element, int position){
 
 Status add_to_list(List_ptr list, Element element){
 Status operation_status;
-operation_status = insert_at(List_ptr list, Element element, int list->length);
+operation_status = insert_at(list,element,list->length);
+return operation_status;
+}
+
+Status add_to_start(List_ptr list, Element element){
+  Status operation_status;
+operation_status = insert_at(list,element,0);
 return operation_status;
 }
