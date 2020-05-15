@@ -205,6 +205,7 @@ while (index<list->length)
   {
     removed_element = remove_at(list,index);
     add_to_list(removed_list, removed_element);
+    index--;
   }
   curr_node = curr_node->next;
   index++;
