@@ -102,13 +102,14 @@ List_ptr filter(List_ptr list, Predicate predicate_function){
 }
 
 Element reduce(List_ptr list, Element element, Reducer reducer_function){
+  Element result=element;
   Node_ptr curr_node = list->first;
   for (int i = 0; i < list->length; i++)
   {
-    element = reducer_function(element,curr_node->element);
+    result = reducer_function(result,curr_node->element);
     curr_node = curr_node->next;
   }
-  return element;
+  return result;
 }
 
 void forEach(List_ptr list, ElementProcessor processor){
