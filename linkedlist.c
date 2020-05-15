@@ -178,7 +178,7 @@ Element removed_element =NULL;
 Node_ptr curr_node = list->first;
 int index = 0;
 Status found = Failure;
-while (found!=Success || index<list->length)
+while (found!=Success && index<list->length)
 {
   found = matcher(curr_node->element,element);
   curr_node = curr_node->next;
@@ -213,7 +213,7 @@ Status add_unique(List_ptr list, Element element, Matcher matcher){
   Status added = Failure;
   int index = 0;
 Status found = Failure;
-while (found!=Success || index<list->length)
+while (found!=Success && index<list->length)
 {
   found = matcher(curr_node->element,element);
   curr_node = curr_node->next;
