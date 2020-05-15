@@ -131,6 +131,8 @@ Element remove_at(List_ptr list, int position){
       removed_element = list->first->element;
       free(list->first);
       free(list->last);
+      list->first = NULL;
+      list->last = NULL;
       list->length--;
       return removed_element;
     }
