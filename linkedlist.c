@@ -25,7 +25,7 @@ Status insert_at(List_ptr list, Element element, int position){
       return operation_status;
     }
     if(list->length==0){
-      list->first = list->last = element;
+      list->first = list->last = node;
   list->length=1;
       return operation_status;
     }
