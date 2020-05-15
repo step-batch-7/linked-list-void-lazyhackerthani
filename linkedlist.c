@@ -195,17 +195,19 @@ return removed_element;
 
 List_ptr remove_all_occurrences(List_ptr list, Element element, Matcher matcher){
 Element removed_element =NULL;
+int index = 0,length=list->length;
 Node_ptr curr_node = list->first;
 List_ptr removed_list = create_list();
-for (int i = 0; i < list->length; i++)
+while (index<length)
 {
   Status found= matcher(curr_node->element,element);
   if (found==Success)
   {
-    removed_element = remove_at(list,i);
+    removed_element = remove_at(list,index);
     add_to_list(removed_list, removed_element);
   }
   curr_node = curr_node->next;
+  index++;
 }
 return removed_list;
 }
@@ -233,7 +235,7 @@ Status clear_list(List_ptr list){
     cleared = Failure;
     return cleared;
   }
-while (list->length==0)
+while (list->length>0)
 {
 remove_from_end(list);
 }
