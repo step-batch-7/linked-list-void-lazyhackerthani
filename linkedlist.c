@@ -195,10 +195,10 @@ return removed_element;
 
 List_ptr remove_all_occurrences(List_ptr list, Element element, Matcher matcher){
 Element removed_element =NULL;
-int index = 0,length=list->length;
+int index = 0;
 Node_ptr curr_node = list->first;
 List_ptr removed_list = create_list();
-while (index<length)
+while (index<list->length)
 {
   Status found= matcher(curr_node->element,element);
   if (found==Success)
